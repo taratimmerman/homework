@@ -7,6 +7,7 @@ defmodule Homework.MixProject do
       version: "0.1.0",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
+      elixirc_paths: elixirc_paths(Mix.env),
       deps: deps()
     ]
   end
@@ -17,6 +18,9 @@ defmodule Homework.MixProject do
       extra_applications: [:logger]
     ]
   end
+
+  defp elixirc_paths(:test), do: ["test", "test/support"]
+  defp elixirc_paths(_),     do: ["test"]
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
